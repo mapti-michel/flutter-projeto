@@ -12,6 +12,8 @@ import 'pages/main_page.dart';
 import 'pages/splash_page.dart';
 import 'pages/register_page.dart';
 
+import 'pages/messages.dart';
+
 FirebaseAnalytics? analytics;
 
 FirebaseAnalyticsObserver? observer;
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Simple Login App',
+      title: '$TITLE',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

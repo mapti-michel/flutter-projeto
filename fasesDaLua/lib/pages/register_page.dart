@@ -5,6 +5,9 @@ import '../appbar.dart';
 import '../input.dart';
 import '../scrollable_column.dart';
 
+import 'messages.dart';
+
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage() : super();
   @override
@@ -21,7 +24,7 @@ class _RegisterPage extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Register new account"),
+      appBar: CustomAppBar(title: "$FIELD_ADD_NEW_ACCOUNT"),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         child: Form(
@@ -30,20 +33,20 @@ class _RegisterPage extends State<RegisterPage> {
             children: [
               CustomInputField(
                 keyboardType: TextInputType.emailAddress,
-                hintText: "Email",
+                hintText: "$FIELD_LOGIN",
                 controller: _emailController,
                 validator: (String? email) {
                   if (email == null) {
                     return null;
                   }
                   bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email);
-                  return emailValid ? null : "Email is not valid";
+                  return emailValid ? null : "$ERROR_LOGIN";
                 },
               ),
               SizedBox(height: 24),
               CustomInputField(
                 keyboardType: TextInputType.visiblePassword,
-                hintText: "Password",
+                hintText: "$FIELD_PASS",
                 obscureText: true,
                 controller: _passwordController,
                 validator: (String? password) {
@@ -51,14 +54,14 @@ class _RegisterPage extends State<RegisterPage> {
                     return null;
                   }
                   if (password.length < 6) {
-                    return "Password is too short";
+                    return "$ERROR_PASSW_SHORT";
                   }
                 },
               ),
               SizedBox(height: 24),
               CustomInputField(
                 keyboardType: TextInputType.visiblePassword,
-                hintText: "Password Confirmation",
+                hintText: "$FIELD_PASS_CONFIRM",
                 obscureText: true,
                 controller: _passwordConfirmationController,
                 validator: (String? password) {
@@ -66,7 +69,7 @@ class _RegisterPage extends State<RegisterPage> {
                     return null;
                   }
                   if (password != _passwordConfirmationController.value.text) {
-                    return "Password is not confirmed";
+                    return "$ERROR_PASSW_NCONFIRM";
                   }
                 },
               ),
@@ -78,16 +81,16 @@ class _RegisterPage extends State<RegisterPage> {
                     Padding(
                       padding: EdgeInsets.only(left: 8),
                       child: Text(
-                        "By creating an account you agree to our",
+                        "$MSG_AGREE",
                         style: TextStyle(
                           color: Color(0xFFa8a8a7),
                         ),
                       ),
                     ),
                     TextButton(
-                      child: Text('Terms & Conditions'),
+                      child: Text('$TERMS'),
                       onPressed: () {
-                        print("// Terms & Conditions");
+                        print("// $TERMS");
                       },
                     ),
                   ],
@@ -97,7 +100,7 @@ class _RegisterPage extends State<RegisterPage> {
               ),
               SizedBox(height: 24),
               ElevatedButton(
-                child: Text("Register"),
+                child: Text("$BT_CREATE"),
                 onPressed: !_agreeWithTermsAndConditions
                     ? null
                     : () {
@@ -112,11 +115,11 @@ class _RegisterPage extends State<RegisterPage> {
                           }).catchError((Object exception) {
                             if (exception is FirebaseAuthException) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Failed to register: ${exception.message}')),
+                                SnackBar(content: Text('$FAIL_CREATE: ${exception.message}')),
                               );
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Unhandled register error ${exception}')),
+                                SnackBar(content: Text('$ERROR_CREATE ${exception}')),
                               );
                             }
                           });
@@ -131,13 +134,13 @@ class _RegisterPage extends State<RegisterPage> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    "Already have an account?",
+                    "$ACCOUNT_EXIST",
                     style: TextStyle(
                       color: Color(0xFFb8b8b8),
                     ),
                   ),
                   TextButton(
-                    child: Text("Login"),
+                    child: Text("$FIELD_LOGIN"),
                     onPressed: () => {
                       Navigator.of(context).pushNamed("/login")
                     },
