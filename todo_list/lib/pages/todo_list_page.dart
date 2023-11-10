@@ -47,14 +47,16 @@ class _TodoListPageState extends State<TodoListPage> {
                     ElevatedButton(
                       onPressed: () {
                         String text = todoController.text;
-                        setState(() {
-                          Todo newTodo = Todo(
-                            //instanciou o objeto
-                            title: text,
-                            dateTime: DateTime.now(),
-                          );
-                          todos.add(newTodo);
-                        });
+                        if(text != null && text != ""){
+                          setState(() {
+                            Todo newTodo = Todo(
+                              //instanciou o objeto
+                              title: text,
+                              dateTime: DateTime.now(),
+                            );
+                            todos.add(newTodo);
+                          });
+                        }
                         todoController.clear();
                       },
                       style: ElevatedButton.styleFrom(
