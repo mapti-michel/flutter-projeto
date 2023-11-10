@@ -21,7 +21,7 @@ class _TodoListPageState extends State<TodoListPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-        title: Text('Lista de Tarefas',
+        title: const Text('Lista de Tarefas',
         style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
       ),
@@ -58,8 +58,8 @@ class _TodoListPageState extends State<TodoListPage> {
                         todoController.clear();
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xff00d7f3),
-                        padding: EdgeInsets.all(14),
+                        backgroundColor: const Color(0xff00d7f3),
+                        padding: const EdgeInsets.all(14),
                       ),
                       child: const Icon(
                         Icons.add,
@@ -91,8 +91,8 @@ class _TodoListPageState extends State<TodoListPage> {
                     ElevatedButton(
                       onPressed: showDeletetodosConfirmationDialog,
                       style: ElevatedButton.styleFrom(
-                          primary: Color(0xff00d7f3),
-                          padding: EdgeInsets.all(14)),
+                          backgroundColor: const Color(0xff00d7f3),
+                          padding: const EdgeInsets.all(14)),
                       child: const Text('Limpar Tudo'),
                     ),
                   ],
@@ -136,11 +136,11 @@ class _TodoListPageState extends State<TodoListPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Limpar tudo?'),
-        content: Text('Confirma exclusão ?'),
+        title: const Text('Limpar tudo?'),
+        content: const Text('Confirma exclusão ?'),
         actions: [
           TextButton(
-            child: Text('Cancelar'),
+            child: const Text('Cancelar'),
             onPressed: () {},
           ),
           TextButton(
@@ -148,7 +148,7 @@ class _TodoListPageState extends State<TodoListPage> {
               Navigator.of(context).pop();
               deleteAllTodos();
             },
-            child: Text('Lmpar Tudo'),
+            child: const Text('Lmpar Tudo'),
           ),
         ],
       ),
