@@ -25,9 +25,9 @@ class _TodoListPageState extends State<TodoListPage> {
         style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
       ),
-        body: Center(
+        body: Card(
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -83,7 +83,12 @@ class _TodoListPageState extends State<TodoListPage> {
                     ],
                   ),
                 ),
+
+
+
+
                 const SizedBox(height: 16),
+
                 Row(
                   children: [
                     Expanded(
