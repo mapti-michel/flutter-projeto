@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login/pages/lua_pages/luapage.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       body: Container(
-        child: Text("Authorized as ${user.email}"),
+        child: LuaPage(),
       ),
     );
   }
