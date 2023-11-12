@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class LuaPage extends StatelessWidget {
-  const LuaPage({super.key});
+  LuaPage({super.key});
+
+  DateTime currentDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +15,18 @@ class LuaPage extends StatelessWidget {
       itemCount: 30,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text('data'),
+          title: Text('Data: ${_MonstraData(index)}'),
           subtitle: Text('fase'),
         );
       }, separatorBuilder: (context, index) => Divider(),
       
     );
   }
+  
+  _MonstraData(int index) {
+    DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+    var dateMonth =  dateFormat.format(currentDate.add(Duration(days: index)));
+    return "$dateMonth";
+  }
+ 
 }
