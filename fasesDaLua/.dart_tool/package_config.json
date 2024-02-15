@@ -128,6 +128,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///C:/Users/michel.a.pereira/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/intl-0.18.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "js",
       "rootUri": "file:///C:/Users/michel.a.pereira/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/js-0.6.4",
       "packageUri": "lib/",
@@ -224,7 +230,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-11-10T15:04:46.073616Z",
+  "generated": "2023-11-13T22:01:19.171111Z",
   "generator": "pub",
   "generatorVersion": "2.19.0-146.2.beta"
 }

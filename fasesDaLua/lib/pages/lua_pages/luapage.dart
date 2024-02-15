@@ -43,22 +43,23 @@ class LuaPage extends StatelessWidget {
     MoonPhase moon=MoonPhase();
     var dateMonth =  currentDate.add(Duration(days: index));
     // var lunarDayConway = moon.getLunarDay(dateMonth);
-    var lunarDayConway = moon.getLunarDayConway(dateMonth);    
+    var lunarDayConway = moon.getLunarDayConway(dateMonth);
+
     switch(moon.getMoonPhaseConway(lunarDayConway).index) {
     case 0:
       return "assets/imagens/luaNova.png";
     case 1:
-      return "assets/imagens/luaCrescenteConcava.png";
+      return "assets/imagens/luaMinguanteConcava.png";
     case 2:
       return "assets/imagens/quartoCrescente.png";      
     case 3:
-      return "assets/imagens/luaCheia.png";
-    case 4:
       return "assets/imagens/luaMinguanteConvexa.png";
+    case 4:
+      return "assets/imagens/luaCheia.png";
     case 5:
       return "assets/imagens/quartoMinguante.png";
     default:
-      return "assets/imagens/luaMinguanteConcava.png";
+      return "assets/imagens/luaCrescenteConcava.png";
     }
   }
 }
